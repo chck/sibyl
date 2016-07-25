@@ -1,19 +1,25 @@
 <template lang="pug">
-  #app
-    h1 {{ msg }}
+  #app.container-fluid
+    .row
+      .col-md-6
+        h1 {{ title }}
+    .row
+      .col-md-12.bs-component
+        .panel.panel-default
+          .panel-heading {{ title }}
 
-    button.btn.btn-success.btn-lg(@click="showRight = !showRight") Click to toggle alert on right
-    button.btn.btn-danger.btn-lg(@click="showTop = !showTop") Click to toggle alert on top
+          button.btn.btn-success.btn-lg(@click="showRight = !showRight") Click to toggle alert on right
+          button.btn.btn-danger.btn-lg(@click="showTop = !showTop") Click to toggle alert on top
 
-    alert(type="success", width="400px", placement="top-right", dismissable, :show.sync="showRight", :duration="3000")
-      span.glyphicon.glyphicon-ok-sign.alert-icon-float-left
-      strong Well Done!
-      p You successfully read this important alert message.
+          alert(type="success", width="400px", placement="top-right", dismissable, :show.sync="showRight", :duration="3000")
+            span.glyphicon.glyphicon-ok-sign.alert-icon-float-left
+            strong Well Done!
+            p You successfully read this important alert message.
 
-    alert(type="danger", width="400px", placement="top", dismissable, :show.sync="showTop", :duration="3000")
-      span.glyphicon.glyphicon-info-sign.alert-icon-float-left
-      strong Heads up!
-      p This alert needs your attention.
+          alert(type="danger", width="400px", placement="top", dismissable, :show.sync="showTop", :duration="3000")
+            span.glyphicon.glyphicon-info-sign.alert-icon-float-left
+            strong Heads up!
+            p This alert needs your attention.
 </template>
 
 <script>
@@ -23,9 +29,9 @@
     components: {
       alert
     },
-    data () {
+    data() {
       return {
-        msg: 'Hello Vue!',
+        title: 'Sibyl',
         showRight: false,
         showTop: false
       }
