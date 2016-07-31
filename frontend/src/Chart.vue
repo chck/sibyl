@@ -1,5 +1,5 @@
 <template lang="pug">
-  canvas(height="height", width="width")
+  canvas(v-bind:height="height", :width="width")
 </template>
 
 <script>
