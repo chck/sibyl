@@ -1,40 +1,57 @@
 <template lang="pug">
   #app.container-fluid
     .row
-      .col-md-6
-        h1 {{ title }}
-    .row
-      .col-md-12.bs-component
-        .panel.panel-default
-          .panel-heading {{ title }}
-
-          button.btn.btn-success.btn-lg(@click="showRight = !showRight") Click to toggle alert on right
-          button.btn.btn-danger.btn-lg(@click="showTop = !showTop") Click to toggle alert on top
-
-          alert(type="success", width="400px", placement="top-right", dismissable, :show.sync="showRight", :duration="3000")
-            span.glyphicon.glyphicon-ok-sign.alert-icon-float-left
-            strong Well Done!
-            p You successfully read this important alert message.
-
-          alert(type="danger", width="400px", placement="top", dismissable, :show.sync="showTop", :duration="3000")
-            span.glyphicon.glyphicon-info-sign.alert-icon-float-left
-            strong Heads up!
-            p This alert needs your attention.
-    .row
-      .col-md-6
-        chart(type="radar", :data="chartData", :options="chartOptions")
-      .col-md-6
-        chart(type="line", :data="chartData", :options="chartOptions")
-    .row
-      .col-md-6
-        chart(type="bar", :data="chartData", :options="chartOptions")
-      .col-md-6
-        chart(type="polarArea", :data="chartData", :options="chartOptions")
-    .row
-      .col-md-6
-        chart(type="pie", :data="chartData", :options="chartOptions")
-      .col-md-6
-        chart(type="doughnut", :data="chartData", :options="chartOptions")
+      .col-lg-2
+        .row
+          .col-xs-12
+            img(v-bind:src="user.avatar_url")
+            h1 {{user.name}}
+            i.fa.fa-github
+            i.fa.fa-facebook
+            i.fa.fa-twitter
+            i.fa.fa-envelope-square
+            h6 {{user.membership}}
+            h6 working for {{user.year}} years
+            p
+              i.fa.fa-signal.fa-fw
+              span Rank:
+              span.detail-value {{user.scores.total_rank}}
+          .col-xs-12
+            .panel.panel-default
+              .panel-heading Score
+                span.detail-value {{totalScore}}
+                  i.fa.fa-star.fa-fw
+              .list-group
+                .list-group-item
+                  a(href="#") Github
+                    span.detail-value {{user.scores.github}}
+                      i.fa.fa-star.fa-fw
+                .list-group-item
+                  a(href="#") Qiita
+                    span.detail-value {{user.scores.qiita}}
+                      i.fa.fa-star.fa-fw
+                .list-group-item
+                  a(href="#") SlideShare
+                    span.detail-value {{user.scores.slide_share}}
+                      i.fa.fa-star.fa-fw
+                .list-group-item
+                  a(href="#") Stack Overflow
+                    span.detail-value {{user.scores.stack_overflow}}
+                      i.fa.fa-star.fa-fw
+      .col-lg-10
+        .row
+          .col-xs-10
+            .panel.panel-default
+              .panel-heading Commits
+              chart(height="100", type="line", :data="chartData", :options="chartOptions")
+          .col-xs-5
+            .panel.panel-default
+              .panel-heading Languages
+              chart(type="doughnut", :data="chartData", :options="chartOptions")
+          .col-xs-5
+            .panel.panel-default
+              .panel-heading Skills
+              chart(type="radar", :data="chartData", :options="chartOptions")
 </template>
 
 <script>
@@ -52,7 +69,17 @@
         showTop: false,
         user: {
           id: 'xxx',
-          name: 'chck'
+          name: 'chck',
+          membership: 'membership',
+          avatar_url: 'https://avatars.githubusercontent.com/u/7288735?v=3',
+          year: 10,
+          scores: {
+            total_rank: "1020/1020",
+            github: 99,
+            qiita: 32,
+            slide_share: 45,
+            stack_overflow: 102
+          }
         },
         chartType: 'bar',
         chartData: {
@@ -83,11 +110,17 @@
           scales: {
             yAxes: [{
               ticks: {
-                beginAtZero:true
+                beginAtZero: true
               }
             }]
           }
         }
+      }
+    },
+    computed: {
+      totalScore() {
+        const scores = this.user.scores;
+        return scores.github + scores.qiita + scores.stack_overflow + scores.slide_share;
       }
     }
   }
@@ -101,4 +134,7 @@
     font-size: 32px
     float: left
     margin-right: 5px
+
+  .detail-value
+    float: right
 </style>
