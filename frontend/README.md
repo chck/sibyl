@@ -1,5 +1,10 @@
 # frontend
 
+## Requirements
+```
+node 5.9.0
+```
+
 ## Build Setup
 
 ``` bash
