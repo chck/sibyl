@@ -1,4 +1,5 @@
 <template lang="pug">
+  navbar(v-bind:avatar_url="user.avatar_url")
   #app.container-fluid
     .row
       .col-lg-2
@@ -57,10 +58,11 @@
 <script>
   import { alert } from 'vue-strap'
   import chart from './Chart.vue'
+  import navbar from './NavBar.vue'
 
   export default {
     components: {
-      alert, chart
+      alert, chart, navbar
     },
     data() {
       return {
