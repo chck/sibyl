@@ -15,11 +15,13 @@
             h6 working for {{user.year}} years
             p
               i.fa.fa-signal.fa-fw
-              span Rank:
+              span
+                b Rank:
               span.detail-value {{user.scores.total_rank}}
           .col-xs-12
             .panel.panel-default
-              .panel-heading Score
+              .panel-heading
+                b Score
                 span.detail-value {{totalScore}}
                   i.fa.fa-star.fa-fw
               .list-group
@@ -43,15 +45,18 @@
         .row
           .col-xs-10
             .panel.panel-default
-              .panel-heading Commits
+              .panel-heading
+                b Commits
               chart(height="100", type="line", :data="chartData", :options="chartOptions")
           .col-xs-5
             .panel.panel-default
-              .panel-heading Languages
+              .panel-heading
+                b Languages
               chart(type="doughnut", :data="chartData", :options="chartOptions")
           .col-xs-5
             .panel.panel-default
-              .panel-heading Skills
+              .panel-heading
+                b Skills
               chart(type="radar", :data="chartData", :options="chartOptions")
 </template>
 

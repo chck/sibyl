@@ -16,7 +16,8 @@
           button(type="submit").btn.btn-default Submit
         ul.nav.navbar-nav.navbar-left
           li
-            a(href="#") Users
+            a(href="#")
+              b Users
         ul.nav.navbar-nav.navbar-right
           li.dropdown
             a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
