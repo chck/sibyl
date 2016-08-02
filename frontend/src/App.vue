@@ -7,10 +7,10 @@
           .col-xs-12
             img(v-bind:src="user.avatar_url")
             h1 {{user.name}}
-            i.fa.fa-github
-            i.fa.fa-facebook
-            i.fa.fa-twitter
-            i.fa.fa-envelope-square
+            i.fa.fa-github.fa-lg
+            i.fa.fa-facebook.fa-lg
+            i.fa.fa-twitter.fa-lg
+            i.fa.fa-envelope-square.fa-lg
             h6 {{user.membership}}
             h6 working for {{user.year}} years
             p
