@@ -5,8 +5,9 @@
   "private": true,
   "scripts": {
     "watchify": "watchify -vd -p browserify-hmr -e src/main.js -o dist/build.js",
-    "serve": "http-server -c 1 -a localhost -o",
-    "dev": "npm-run-all --parallel watchify serve",
+    "serve-and-open": "http-server -c 1 -a localhost -o",
+    "serve": "http-server -c 1 -a localhost",
+    "dev": "npm-run-all --parallel watchify serve-and-open",
     "build": "cross-env NODE_ENV=production browserify src/main.js | uglifyjs -c warnings=false -m > dist/build.js"
   },
   "dependencies": {
