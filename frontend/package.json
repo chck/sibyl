@@ -38,5 +38,9 @@
       "vueify",
       "babelify"
     ]
+  },
+  "engines": {
+    "node": "v6.4.X",
+    "npm": "3.10.X"
   }
 }
