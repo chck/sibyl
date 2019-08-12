@@ -1,6 +1,6 @@
 {
-  "name": "frontend",
-  "description": "A Vue.js project",
+  "name": "sibyl",
+  "description": "sibyl reveals your own insights",
   "author": "chck",
   "private": true,
   "scripts": {
