@@ -61,7 +61,7 @@
 </template>
 
 <script>
-  import { alert } from 'vue-strap'
+  import {alert} from 'vue-strap'
   import chart from './Chart.vue'
   import navbar from './NavBar.vue'
 

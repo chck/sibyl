@@ -47,6 +47,7 @@
 <style lang="stylus">
   .dropdown-toggle
     height: 50px
+
   .dropdown-avatar
     height: 30px
 </style>
