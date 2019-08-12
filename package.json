@@ -2,12 +2,11 @@
   "name": "sibyl",
   "description": "sibyl reveals your own insights",
   "author": "chck",
-  "private": true,
   "scripts": {
     "watchify": "watchify -vd -p browserify-hmr -e src/main.js -o dist/build.js",
     "serve-and-open": "http-server -c 1 -a localhost -o",
     "serve": "http-server -c 1 -a localhost",
-    "dev": "npm-run-all --parallel watchify serve-and-open",
+    "dev": "./node_modules/.bin/npm-run-all --parallel watchify serve-and-open",
     "build": "cross-env NODE_ENV=production browserify src/main.js | uglifyjs -c warnings=false -m > dist/build.js"
   },
   "dependencies": {
@@ -40,7 +39,6 @@
     ]
   },
   "engines": {
-    "node": "v6.4.X",
-    "npm": "3.10.X"
+    "node": "v12.8.X"
   }
 }
