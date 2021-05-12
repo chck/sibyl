@@ -10,7 +10,7 @@
     "build": "cross-env NODE_ENV=production browserify src/main.js | uglifyjs -c warnings=false -m > dist/build.js"
   },
   "dependencies": {
-    "chart.js": "^2.2.0-rc.2",
+    "chart.js": "^2.9.4",
     "vue": "^1.0.0",
     "vue-strap": "git://github.com/yuche/vue-strap.git#e52e281"
   },
